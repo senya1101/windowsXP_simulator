@@ -2,7 +2,7 @@
 @import url('../vendor/normalize.css');
 @import url('../vendor/fonts.css');
 @import url('../blocks/footer/footer.css');
-
+@import url('../blocks/context_menu/context_menu.css');
 
 #root {
     background: url('../images/background.webp') no-repeat center center fixed;
@@ -10,6 +10,7 @@
     position: relative;
     color: white;
     block-size: 100vh;
+    inline-size: 100%;
     overflow: hidden;
     cursor: url("../images/cursor.ico"), auto;
 }

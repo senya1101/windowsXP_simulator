@@ -1,4 +1,5 @@
 .volume-wrapper {
+    display: none;
     position: absolute;
     background-color: #ECE9D8;
     bottom: 17px;
@@ -14,6 +15,17 @@
     inset -1px -1px #716F64, inset -2px -2px 0 #ACA899;
 }
 
+.volume-wrapper-animated {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.1s, opacity 0.1s;
+}
+
+.volume-wrapper-active {
+    opacity: 1;
+    visibility: visible;
+}
 .volume-label {
     display: flex;
     transform: rotate(-90deg) translateX(-40px);

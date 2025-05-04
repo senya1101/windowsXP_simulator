@@ -33,6 +33,13 @@
 
 }
 
+.footer__options_volume-muted {
+    background: url('../../../images/icons/volume_icon_muted.ico') no-repeat center center;
+    background-size: cover;
+    min-block-size: 17px;
+    aspect-ratio: 1;
+}
+
 .footer__options_security {
     background: url('../../../images/icons/security.ico') no-repeat center center;
     background-size: contain;

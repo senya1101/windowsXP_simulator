@@ -1,0 +1,32 @@
+.context_menu {
+    display: none;
+    position: absolute;
+    background: #fff;
+    border: 1px solid #ACA899;
+    color: #000;
+    font-size: 12px;
+    text-transform: capitalize;
+    inline-size: max-content;
+    min-inline-size: 120px;
+    padding: 2px;
+}
+
+.context_menu-item {
+    padding: 3px 15px;
+}
+
+.context_menu-item:hover {
+    background: #316AC5;
+    color: #fff;
+}
+
+.context_menu-animated {
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.1s, opacity 0.1s;
+}
+.context_menu-active {
+    opacity: 1;
+    visibility: visible;
+}
