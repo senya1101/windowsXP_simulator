@@ -1,0 +1,76 @@
+.volume-wrapper {
+    position: absolute;
+    background-color: #ECE9D8;
+    bottom: 17px;
+    left: 10px;
+    padding: 10px 0;
+    text-align: center;
+    block-size: 140px;
+    inline-size: 70px;
+    color: #000;
+    font-size: 12px;
+    text-transform: capitalize;
+    box-shadow:inset 1px 1px #F1EFE2, inset 2px 2px 0 #fff,
+    inset -1px -1px #716F64, inset -2px -2px 0 #ACA899;
+}
+
+.volume-label {
+    display: flex;
+    transform: rotate(-90deg) translateX(-40px);
+}
+
+.volume-mute {
+    position: absolute;
+    right: 15px;
+    bottom: 10px;
+}
+
+.volume-mute::before {
+    content: '';
+    position: absolute;
+    right: 30px;
+    top: -2px;
+    block-size: 15px;
+    aspect-ratio: 1;
+    border: 1px solid #1C5180;
+    background-color: #F3F3F1;
+}
+
+.volume-mute:hover::before {
+    box-shadow: inset -2px -2px 2px #FAC151, inset 2px 2px 2px #FAC151;
+}
+
+input[type=checkbox]:checked + .volume-mute::before {
+    background: url('../../../../images/checked.ico') no-repeat center center, #F3F3F1;
+    background-size: 15px;
+}
+
+.volume-input {
+    width: 65px;
+    height: 5px;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.volume-input::-webkit-slider-runnable-track {
+    background:linear-gradient(to right, #989794 0 0, #F3F2EA00 1px 64px, #989794 66px 65px),
+            linear-gradient(to bottom, #989794 0 1px,#F3F2EA 1px 4px, #FEFEFE 4px 5px ) ;
+    border-radius: 3px;
+    height: 5px;
+}
+
+.volume-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 10px;
+    height: 20px;
+    margin-top: -7px;
+    border: 1px solid #778892;
+    border-radius: 2px;
+    background: #F3F3F1;
+    box-shadow: inset  0 1px  0 #1FAE1D, inset  0 -1px 0 #1FAE1D;
+}
+
+.volume-input::-webkit-slider-thumb:hover {
+    box-shadow: inset  0 1px  0  #FAC151, inset  0 -1px 0  #FAC151;
+}

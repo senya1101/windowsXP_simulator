@@ -1,0 +1,28 @@
+.footer__start_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(to right, #14632E 0 1%, rgba(20, 99, 46, 0) 5% 90%,  #14632E 99% 100%),
+                linear-gradient(to bottom, #14632E 0 5%, #96C495 10% 12%, #339835 30% 90%, #14632E 99% 100%);
+    padding: 5px 20px 5px 40px;
+    position: relative;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 800;
+    border-radius:0  8px 8px 0;
+    text-shadow: 0 0 3px #000;
+    border-right: 1px solid #3E89E7;
+}
+
+.footer__start_menu::before {
+    content: '';
+    position: absolute;
+    inline-size: 25px;
+    aspect-ratio: 1;
+    top: 2px;
+    left: 10px;
+    background: url('../../../images/icons/System-Windows-icon.png');
+    background-size: 25px 25px;
+}
+
+

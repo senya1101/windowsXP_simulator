@@ -1,0 +1,25 @@
+@import url('../vendor/reset.css');
+@import url('../vendor/normalize.css');
+@import url('../vendor/fonts.css');
+@import url('../blocks/footer/footer.css');
+
+
+#root {
+    background: url('../images/background.webp') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+    color: white;
+    block-size: 100vh;
+    overflow: hidden;
+    cursor: url("../images/cursor.ico"), auto;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+}

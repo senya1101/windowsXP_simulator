@@ -1,0 +1,14 @@
+@import url('./__start_menu/footer__start_menu.css');
+@import url('__options/footer__options.css');
+.footer {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    background: linear-gradient(to bottom, #3168D5 0 5%,
+                #4993E6 10% 12%, #215FDC 10px 95%,  #1941A5 100%) ;
+
+}
