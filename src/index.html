@@ -5,6 +5,12 @@
     <title>Title</title>
 </head>
 <body id="root">
+<main class="desktop">
+    <div data-icon id="bin" class="desktop__item">
+        <img class="desktop__item-icon" src="<%= require('./images/icons/bin.png') %>" alt="bin"/>
+        <h3 class="desktop__item-title">Recycle Bin</h3>
+    </div>
+</main>
 <footer class="footer">
     <div class="footer__start_menu">start</div>
     <div class="footer__apps"></div>
@@ -19,8 +25,8 @@
                             <input class="volume-input" type="range">
                         </label>
                         <input id="muted" type="checkbox" class="visually-hidden">
-                        <label for="muted"  class="volume-mute">
-                        Mute
+                        <label for="muted" class="volume-mute">
+                            Mute
                         </label>
                     </div>
                 </li>
@@ -30,17 +36,23 @@
     </ul>
 
 </footer>
-</body>
-</html>
-
 <ol class="context_menu">
     <li class="context_menu-item">Arrange icons by</li>
     <li class="context_menu-item">Refresh</li>
-    <li><hr></li>
+    <li>
+        <hr>
+    </li>
     <li class="context_menu-item">Paste</li>
     <li class="context_menu-item">Paste shortcut</li>
-    <li><hr></li>
+    <li>
+        <hr>
+    </li>
     <li class="context_menu-item">New</li>
-    <li><hr></li>
+    <li>
+        <hr>
+    </li>
     <li class="context_menu-item">Properties</li>
 </ol>
+</body>
+</html>
+

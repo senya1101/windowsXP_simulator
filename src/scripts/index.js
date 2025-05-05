@@ -1,4 +1,3 @@
-'use strict'
 import '../pages/index.css'
 
 const time = document.querySelector('.footer__options_date')
@@ -31,7 +30,7 @@ volume.addEventListener('click', () => {
     })
 
     document.addEventListener('click', function quitHandler(evt) {
-        if (!evt.target.classList.contains('volume-wrapper') && evt.target!==muteIcon) {
+        if (!evt.target.classList.contains('volume-wrapper') && evt.target !== muteIcon) {
             volumeInput.classList.remove('volume-wrapper-active')
             document.removeEventListener('click', quitHandler)
         }
@@ -45,10 +44,10 @@ muteInput.addEventListener('change', () => {
 
 document.addEventListener('contextmenu', (evt) => {
     evt.preventDefault()
-    const { innerHeight, innerWidth } = window;
+    const {innerHeight, innerWidth} = window;
     const {offsetHeight, offsetWidth} = contextMenu
-    const x = offsetWidth + evt.offsetX + 20 > innerWidth?evt.offsetX-offsetWidth:evt.offsetX
-    const y = offsetHeight + evt.offsetY + 20 >innerHeight?evt.offsetY-offsetHeight:evt.offsetY
+    const x = offsetWidth + evt.offsetX + 20 > innerWidth ? evt.offsetX - offsetWidth : evt.offsetX
+    const y = offsetHeight + evt.offsetY + 20 > innerHeight ? evt.offsetY - offsetHeight : evt.offsetY
     contextMenu.style.transform = `translateX(${x}px) translateY(${y}px)`
 
     contextMenu.classList.add('context_menu-animated')
@@ -62,3 +61,67 @@ document.addEventListener('contextmenu', (evt) => {
         }
     })
 })
+
+class DragAndDrop {
+    selectors = {
+        icon: '[data-icon]'
+    }
+
+    draggingClass = 'isDragging'
+
+    initialState = {
+        offsetX: null,
+        offsetY: null,
+        isDragging: false,
+        currentIcon: null
+    }
+
+    constructor() {
+        this.state = {...this.initialState}
+        this.bindEvents()
+    }
+
+    mouseDownHandler(evt) {
+        const {target, x, y} = evt
+        const iconElement = target.closest(this.selectors.icon);
+        if (!iconElement) return;
+
+        iconElement.classList.add(this.draggingClass)
+
+        const {left, top} = target.getBoundingClientRect()
+
+        this.state = {
+            offsetX: x - left,
+            offsetY: y - top,
+            isDragging: true,
+            currentIcon: iconElement,
+        }
+    }
+
+    mouseMoveHandler(evt) {
+        if (!this.state.isDragging) {
+            return
+        }
+        const x = evt.pageX - this.state.offsetX
+        const y = evt.pageY - this.state.offsetY
+        this.state.currentIcon.style.left = `${x}px`
+        this.state.currentIcon.style.top = `${y}px`
+
+    }
+
+    mouseUpHandler() {
+        if (!this.state.isDragging) {
+            return
+        }
+        this.state.currentIcon.classList.remove(this.draggingClass)
+        this.state = {...this.initialState}
+    }
+
+    bindEvents() {
+        document.addEventListener('pointerdown', evt => this.mouseDownHandler(evt))
+        document.addEventListener('pointermove', evt => this.mouseMoveHandler(evt))
+        document.addEventListener('pointerup', () => this.mouseUpHandler())
+    }
+}
+
+new DragAndDrop()

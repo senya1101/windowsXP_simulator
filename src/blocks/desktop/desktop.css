@@ -1,0 +1,45 @@
+.desktop {
+    block-size: 100%;
+    inline-size: 100%;
+    display: grid;
+    grid-template: repeat(auto-fill, 60px) / repeat(auto-fill, 60px);
+    color: #000;
+    position: relative;
+}
+
+.desktop__item {
+    position: absolute;
+    top: 0;
+    right: 0;
+    inline-size: 100%;
+    block-size: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.desktop__item-icon {
+    inline-size: 45px;
+    aspect-ratio: 1;
+}
+
+.desktop__item-title{
+    font-size: 10px;
+    color: #fff;
+    max-inline-size: 60px;
+    text-wrap: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-shadow: 0 1px 2px #000;
+    padding: 2px;
+}
+
+#bin:focus{
+    background: #316AC5;
+}
+
+
+#bin:focus::after {
+    background: #316AC5;
+}
+

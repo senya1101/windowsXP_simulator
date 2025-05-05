@@ -1,6 +1,8 @@
 .context_menu {
     display: none;
     position: absolute;
+    top: 0;
+    left: 0;
     background: #fff;
     border: 1px solid #ACA899;
     color: #000;
@@ -9,6 +11,7 @@
     inline-size: max-content;
     min-inline-size: 120px;
     padding: 2px;
+    z-index: 2;
 }
 
 .context_menu-item {
