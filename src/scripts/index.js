@@ -1,3 +1,4 @@
+'use strict'
 import '../pages/index.css'
 
 const time = document.querySelector('.footer__options_date')
@@ -15,39 +16,44 @@ function updateTime() {
     const cur_minutes = cur_time.getMinutes().toString().padStart(2, '0')
     time.innerText = `${cur_hour}:${cur_minutes}`
 }
+
 updateTime();
 setInterval(updateTime, 60000)
 
-time.addEventListener('click', ()=>{
-    
+time.addEventListener('click', () => {
+
 })
 
-volume.addEventListener('click', ()=>{
+volume.addEventListener('click', () => {
     volumeInput.classList.add('volume-wrapper-animated')
-    setTimeout(()=>{
+    setTimeout(() => {
         volumeInput.classList.add('volume-wrapper-active')
     })
-    document.onclick = (evt)=>{
-        if (!evt.target.classList.contains('volume-wrapper')) {
+
+    document.addEventListener('click', function quitHandler(evt) {
+        if (!evt.target.classList.contains('volume-wrapper') && evt.target!==muteIcon) {
             volumeInput.classList.remove('volume-wrapper-active')
+            document.removeEventListener('click', quitHandler)
         }
-    }
+    })
 })
 
-muteInput.addEventListener('change', ()=>{
+
+muteInput.addEventListener('change', () => {
     muteIcon.classList.toggle('footer__options_volume-muted')
 })
 
-document.addEventListener('contextmenu', (evt)=>{
+document.addEventListener('contextmenu', (evt) => {
     evt.preventDefault()
     contextMenu.style.transform = `translateX(${evt.offsetX}px) translateY(${evt.offsetY}px)`
     contextMenu.classList.add('context_menu-animated')
-    setTimeout(()=>{
+    setTimeout(() => {
         contextMenu.classList.add('context_menu-active')
     })
-    document.onclick = (evt)=>{
+    document.addEventListener('click', function handlerQuit(evt) {
         if (!evt.target.classList.contains('context_menu-item') && !evt.target.classList.contains('context_menu')) {
             contextMenu.classList.remove('context_menu-active')
+            document.removeEventListener('click', handlerQuit)
         }
-    }
+    })
 })
