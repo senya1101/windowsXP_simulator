@@ -45,7 +45,12 @@ muteInput.addEventListener('change', () => {
 
 document.addEventListener('contextmenu', (evt) => {
     evt.preventDefault()
-    contextMenu.style.transform = `translateX(${evt.offsetX}px) translateY(${evt.offsetY}px)`
+    const { innerHeight, innerWidth } = window;
+    const {offsetHeight, offsetWidth} = contextMenu
+    const x = offsetWidth + evt.offsetX + 20 > innerWidth?evt.offsetX-offsetWidth:evt.offsetX
+    const y = offsetHeight + evt.offsetY + 20 >innerHeight?evt.offsetY-offsetHeight:evt.offsetY
+    contextMenu.style.transform = `translateX(${x}px) translateY(${y}px)`
+
     contextMenu.classList.add('context_menu-animated')
     setTimeout(() => {
         contextMenu.classList.add('context_menu-active')
